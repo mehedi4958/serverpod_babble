@@ -1,0 +1,54 @@
+services:
+  # Development services
+  postgres:
+    image: postgres:16.3
+    ports:
+      - '8090:5432'
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_DB: serverpod_babble
+      POSTGRES_PASSWORD: "xdBCDi7pY9aTn84Dr8POWm-gRXvtJ7ay"
+    volumes:
+      - serverpod_babble_data:/var/lib/postgresql/data
+    profiles:
+      - '' # Default profile
+      - dev
+  redis:
+    image: redis:6.2.6
+    ports:
+      - '8091:6379'
+    command: redis-server --requirepass "jnmIzZ6H-ljZAINmh_9XaE7mSBaRrifG"
+    environment:
+      - REDIS_REPLICATION_MODE=master
+    profiles:
+      - '' # Default profile
+      - dev
+
+  # Test services
+  postgres_test:
+    image: postgres:16.3
+    ports:
+      - '9090:5432'
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_DB: serverpod_babble_test
+      POSTGRES_PASSWORD: "etgqWcB6T90THYXU0L1VnxhnUuIoGpl_"
+    volumes:
+      - serverpod_babble_test_data:/var/lib/postgresql/data
+    profiles:
+      - '' # Default profile
+      - test
+  redis_test:
+    image: redis:6.2.6
+    ports:
+      - '9091:6379'
+    command: redis-server --requirepass "86IDwz3ek5VbejGbHnmvD5Qjd9-G4qmE"
+    environment:
+      - REDIS_REPLICATION_MODE=master
+    profiles:
+      - '' # Default profile
+      - test
+
+volumes:
+  serverpod_babble_data:
+  serverpod_babble_test_data:
