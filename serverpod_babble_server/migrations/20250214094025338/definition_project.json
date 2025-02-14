@@ -1,0 +1,23 @@
+{
+  "moduleName": "serverpod_babble",
+  "tables": [],
+  "installedModules": [
+    {
+      "module": "serverpod",
+      "version": "20240516151843329"
+    },
+    {
+      "module": "serverpod_auth",
+      "version": "20240520102713718"
+    },
+    {
+      "module": "serverpod_chat",
+      "version": "20241219152420529"
+    },
+    {
+      "module": "serverpod_babble",
+      "version": "20250116064457689"
+    }
+  ],
+  "migrationApiVersion": 1
+}
