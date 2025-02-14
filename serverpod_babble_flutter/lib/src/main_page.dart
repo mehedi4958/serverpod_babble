@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:serverpod_babble_client/serverpod_babble_client.dart';
+import 'package:serverpod_babble_flutter/src/chat_page.dart';
 import 'package:serverpod_chat_flutter/serverpod_chat_flutter.dart';
 
 class MainPage extends StatefulWidget {
