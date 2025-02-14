@@ -13,8 +13,10 @@ import 'package:serverpod/serverpod.dart' as _i1;
 import 'package:serverpod/protocol.dart' as _i2;
 import 'package:serverpod_auth_server/serverpod_auth_server.dart' as _i3;
 import 'package:serverpod_chat_server/serverpod_chat_server.dart' as _i4;
-import 'channel.dart' as _i5;
-import 'package:serverpod_babble_server/src/generated/channel.dart' as _i6;
+import 'babble_theme.dart' as _i5;
+import 'channel.dart' as _i6;
+import 'package:serverpod_babble_server/src/generated/channel.dart' as _i7;
+export 'babble_theme.dart';
 export 'channel.dart';
 
 class Protocol extends _i1.SerializationManagerServer {
@@ -80,14 +82,20 @@ class Protocol extends _i1.SerializationManagerServer {
     Type? t,
   ]) {
     t ??= T;
-    if (t == _i5.Channel) {
-      return _i5.Channel.fromJson(data) as T;
+    if (t == _i5.BabbleTheme) {
+      return _i5.BabbleTheme.fromJson(data) as T;
     }
-    if (t == _i1.getType<_i5.Channel?>()) {
-      return (data != null ? _i5.Channel.fromJson(data) : null) as T;
+    if (t == _i6.Channel) {
+      return _i6.Channel.fromJson(data) as T;
     }
-    if (t == List<_i6.Channel>) {
-      return (data as List).map((e) => deserialize<_i6.Channel>(e)).toList()
+    if (t == _i1.getType<_i5.BabbleTheme?>()) {
+      return (data != null ? _i5.BabbleTheme.fromJson(data) : null) as T;
+    }
+    if (t == _i1.getType<_i6.Channel?>()) {
+      return (data != null ? _i6.Channel.fromJson(data) : null) as T;
+    }
+    if (t == List<_i7.Channel>) {
+      return (data as List).map((e) => deserialize<_i7.Channel>(e)).toList()
           as dynamic;
     }
     try {
@@ -106,7 +114,10 @@ class Protocol extends _i1.SerializationManagerServer {
   String? getClassNameForObject(Object? data) {
     String? className = super.getClassNameForObject(data);
     if (className != null) return className;
-    if (data is _i5.Channel) {
+    if (data is _i5.BabbleTheme) {
+      return 'BabbleTheme';
+    }
+    if (data is _i6.Channel) {
       return 'Channel';
     }
     className = _i2.Protocol().getClassNameForObject(data);
@@ -130,8 +141,11 @@ class Protocol extends _i1.SerializationManagerServer {
     if (dataClassName is! String) {
       return super.deserializeByClassName(data);
     }
+    if (dataClassName == 'BabbleTheme') {
+      return deserialize<_i5.BabbleTheme>(data['data']);
+    }
     if (dataClassName == 'Channel') {
-      return deserialize<_i5.Channel>(data['data']);
+      return deserialize<_i6.Channel>(data['data']);
     }
     if (dataClassName.startsWith('serverpod.')) {
       data['className'] = dataClassName.substring(10);
@@ -169,8 +183,8 @@ class Protocol extends _i1.SerializationManagerServer {
       }
     }
     switch (t) {
-      case _i5.Channel:
-        return _i5.Channel.t;
+      case _i6.Channel:
+        return _i6.Channel.t;
     }
     return null;
   }

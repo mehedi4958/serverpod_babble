@@ -31,6 +31,14 @@ class EndpointChannels extends _i1.EndpointRef {
       );
 }
 
+/// {@category Endpoint}
+class EndpointTheme extends _i1.EndpointRef {
+  EndpointTheme(_i1.EndpointCaller caller) : super(caller);
+
+  @override
+  String get name => 'theme';
+}
+
 class Modules {
   Modules(Client client) {
     auth = _i4.Caller(client);
@@ -69,15 +77,21 @@ class Client extends _i1.ServerpodClientShared {
               disconnectStreamsOnLostInternetConnection,
         ) {
     channels = EndpointChannels(this);
+    theme = EndpointTheme(this);
     modules = Modules(this);
   }
 
   late final EndpointChannels channels;
 
+  late final EndpointTheme theme;
+
   late final Modules modules;
 
   @override
-  Map<String, _i1.EndpointRef> get endpointRefLookup => {'channels': channels};
+  Map<String, _i1.EndpointRef> get endpointRefLookup => {
+        'channels': channels,
+        'theme': theme,
+      };
 
   @override
   Map<String, _i1.ModuleEndpointCaller> get moduleLookup => {

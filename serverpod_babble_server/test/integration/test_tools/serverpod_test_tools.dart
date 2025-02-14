@@ -96,6 +96,8 @@ void withServerpod(
 
 class TestEndpoints {
   late final _ChannelsEndpoint channels;
+
+  late final _ThemeEndpoint theme;
 }
 
 class _InternalTestEndpoints extends TestEndpoints
@@ -106,6 +108,10 @@ class _InternalTestEndpoints extends TestEndpoints
     _i2.EndpointDispatch endpoints,
   ) {
     channels = _ChannelsEndpoint(
+      endpoints,
+      serializationManager,
+    );
+    theme = _ThemeEndpoint(
       endpoints,
       serializationManager,
     );
@@ -148,4 +154,11 @@ class _ChannelsEndpoint {
       }
     });
   }
+}
+
+class _ThemeEndpoint {
+  _ThemeEndpoint(
+    _endpointDispatch,
+    _serializationManager,
+  );
 }
