@@ -37,6 +37,25 @@ class _MainPageState extends State<MainPage> {
         break;
       }
     }
-    return Container();
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(channel?.name ?? 'Serverpod Example'),
+      ),
+      drawer: _ChannelDrawer(
+        channels: widget.channels,
+        selectedChannel: _selectedChannel,
+        onSelectedChannel: (channel) {
+          setState(() {
+            _selectedChannel = channel;
+          });
+        },
+      ),
+      body: controller != null ? ChatPage(
+        key: ValueKey(controller.channel),
+        controller: controller,
+      ): const Center(
+        child: Text('Select a channel'),
+      ),
+    );
   }
 }
