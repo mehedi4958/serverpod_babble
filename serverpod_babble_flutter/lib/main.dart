@@ -2,6 +2,8 @@ import 'package:serverpod_auth_email_flutter/serverpod_auth_email_flutter.dart';
 import 'package:serverpod_auth_shared_flutter/serverpod_auth_shared_flutter.dart';
 import 'package:serverpod_babble_client/serverpod_babble_client.dart';
 import 'package:flutter/material.dart';
+import 'package:serverpod_babble_flutter/src/disconnected_page.dart';
+import 'package:serverpod_babble_flutter/src/loading_page.dart';
 import 'package:serverpod_babble_flutter/src/main_page.dart';
 import 'package:serverpod_chat_flutter/serverpod_chat_flutter.dart';
 import 'package:serverpod_flutter/serverpod_flutter.dart';
