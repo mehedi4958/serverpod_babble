@@ -51,7 +51,17 @@ class Endpoints extends _i1.EndpointDispatch {
     connectors['theme'] = _i1.EndpointConnector(
       name: 'theme',
       endpoint: endpoints['theme']!,
-      methodConnectors: {},
+      methodConnectors: {
+        'changeTheme': _i1.MethodConnector(
+          name: 'changeTheme',
+          params: {},
+          call: (
+            _i1.Session session,
+            Map<String, dynamic> params,
+          ) async =>
+              (endpoints['theme'] as _i3.ThemeEndpoint).changeTheme(session),
+        )
+      },
     );
     modules['serverpod_auth'] = _i4.Endpoints()..initializeEndpoints(server);
     modules['serverpod_chat'] = _i5.Endpoints()..initializeEndpoints(server);

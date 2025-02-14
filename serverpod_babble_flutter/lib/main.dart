@@ -170,6 +170,12 @@ class __ConnectionPageState extends State<_ConnectionPage> {
         // listens to the changes in the connection status of the channel
         controller.addConnectionStatusListener(_chatConnectionStatusChanged);
       }
+
+      ///
+      client.theme.stream.listen((event) {
+        var theme = event as BabbleTheme;
+        print('Theme Dark: ${theme.dark}');
+      });
     } catch (e) {
       // failed to connect
       setState(() {

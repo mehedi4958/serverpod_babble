@@ -37,6 +37,12 @@ class EndpointTheme extends _i1.EndpointRef {
 
   @override
   String get name => 'theme';
+
+  _i2.Future<void> changeTheme() => caller.callServerEndpoint<void>(
+        'theme',
+        'changeTheme',
+        {},
+      );
 }
 
 class Modules {
